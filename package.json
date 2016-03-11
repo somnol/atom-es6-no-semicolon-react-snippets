@@ -2,7 +2,7 @@
   "name": "es6-no-semicolon-react-snippets",
   "main": "./lib/es6-no-semicolon-react-snippets",
   "version": "0.0.1",
-  "description": "A short description of your package",
+  "description": "This package provide some snippets of react, redux with no-semicolon style -- for the language-babel",
   "keywords": [
     "es6",
     "no-semicolon",

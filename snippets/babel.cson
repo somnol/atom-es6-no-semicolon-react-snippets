@@ -25,7 +25,7 @@
     '''
 
   'import reducers':
-    prefix: 'rd-impred':
+    prefix: 'rd-impred'
     body: '''
       import { ${1:reducers} } from '${2:../reducers}'$3
     '''
@@ -49,7 +49,7 @@
     '''
 
   'import createStore and create it':
-    prefix: 'rd-impcsc':
+    prefix: 'rd-impcsc'
     body: '''
       import { ${1:createStore} } from 'redux'
 
@@ -113,7 +113,7 @@
     '''
 
   'combineReducers':
-    prefix: 'rd-com':
+    prefix: 'rd-com'
     body: '''
       let $1 = combineReducers({
         $2,
@@ -144,7 +144,7 @@
     '''
 
   'connect Container':
-    prefix: 'rd-con':
+    prefix: 'rd-con'
     body:'''
       let $1 = connect(
         mapStateToProps,
@@ -177,16 +177,6 @@
           dispatch({
             $3
           })
-        }
-      }
-    '''
-
-  'middleware':
-    prefix: 'rd-md'
-    body: '''
-      export default function $1({ dispatch, getState }) {
-        return next => action => {
-          ${2:next(action)}
         }
       }
     '''
