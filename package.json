@@ -4,15 +4,28 @@
   "version": "0.0.1",
   "description": "A short description of your package",
   "keywords": [
+    "es6",
+    "no-semicolon",
+    "react",
+    "redux",
+    "snippets"
   ],
   "activationCommands": {
     "atom-workspace": "es6-no-semicolon-react-snippets:convert"
   },
-  "repository": "https://github.com/atom/es6-no-semicolon-react-snippets",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/somnol/atom-es6-no-semicolon-react-snippets.git"
+  },
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
+  "author": "Benta Dng <deng.bintao@gmail.com",
+  "bugs": {
+    "url": "https://github.com/somnol/atom-es6-no-semicolon-react-snippets"
+  },
+  "homepage": "https://github.com/somnol/atom-es6-no-semicolon-react-snippets",
   "dependencies": {
   }
 }
