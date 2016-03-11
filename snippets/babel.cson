@@ -1,0 +1,192 @@
+'.source.js.jsx':
+
+  'export action':
+    prefix: 'rd-expact'
+    body: '''
+      export const $1 = '$1'$2
+    '''
+
+  'export action creator':
+    prefix: 'rd-expactc'
+    body: '''
+      export function ${1:addTodo}($2) {
+        $4
+        return {
+          $2,
+          type: $3
+        }
+      }$5
+    '''
+
+  'import action':
+    prefix: 'rd-impact'
+    body: '''
+      import { ${1:action} } from '${2:../actions}'$3
+    '''
+
+  'import reducers':
+    prefix: 'rd-impred':
+    body: '''
+      import { ${1:reducers} } from '${2:../reducers}'$3
+    '''
+
+  'import combineReducers':
+    prefix: 'rd-impcom'
+    body: '''
+      import { ${1:combineReducers} } from 'redux'$2
+    '''
+
+  'import connect':
+    prefix: 'rd-impcon'
+    body: '''
+      import { ${1:connect} } from 'react-redux'$2
+    '''
+
+  'import createStore':
+    prefix: 'rd-impcs'
+    body: '''
+      import { ${1:createStore} } from 'redux'$2
+    '''
+
+  'import createStore and create it':
+    prefix: 'rd-impcsc':
+    body: '''
+      import { ${1:createStore} } from 'redux'
+
+      let store = createStore($2)$3
+    '''
+
+  'import Provider':
+    prefix: 'rd-imppro'
+    body: '''
+      import { ${1:Provider} } from 'react-redux'$2
+    '''
+
+  'import React and PropTypes':
+    prefix: 'r-imprp'
+    body: '''
+      import React, { PropTypes } from 'react'$1
+    '''
+
+  'import React and create presentational Component':
+    prefix: 'r-imppc'
+    body: '''
+      import React, { PropTypes } from 'react'
+
+      export default const $1 = ({ ${2} }) => $4
+
+      $1.propTypes = {
+        $3
+      }
+    '''
+
+  'create React class-base Component':
+    prefix: 'r-cre-cc'
+    body: '''
+      class $1 extends React.Component {
+        render() {
+          return $2
+        }
+      }
+    '''
+
+  'create function-base component':
+    prefix: 'r-cre-func'
+    body: '''
+      const $1 = ({ $2}) => $3
+    '''
+
+  'component with constructor and state':
+    prefix: 'r-cre-sc'
+    body: '''
+      class $1 extends React.Component {
+        constructor(props) {
+          super(props)
+
+          this.state = {$2}
+        }
+
+        render() {
+          return $3
+        }
+      }
+    '''
+
+  'combineReducers':
+    prefix: 'rd-com':
+    body: '''
+      let $1 = combineReducers({
+        $2,
+        $3
+      })$4
+
+      export default $1
+    '''
+
+  'mapStateToProps':
+    prefix: 'rd-maps'
+    body: '''
+      const mapStateToProps = (state${1}) => {
+        return {
+          $2
+        }
+      }$3
+    '''
+
+  'mapDispatchToProps':
+    prefix: 'rd-mapd'
+    body: '''
+      const mapDispatchToProps = (dispatch${1}) => {
+        return {
+          $2
+        }
+      }$3
+    '''
+
+  'connect Container':
+    prefix: 'rd-con':
+    body:'''
+      let $1 = connect(
+        mapStateToProps,
+        mapDispatchToProps
+      )($2)$3
+
+      export default $1
+    '''
+
+  'create Provider':
+    prefix: 'rd-pro'
+    body: '''
+      <Provider store={ store }>
+        $1
+      </Provider>$2
+    '''
+
+  'createStore':
+    prefix: 'rd-crestore'
+    body: '''
+      let store = createStore($1)$2
+    '''
+
+  'async-action':
+    prefix: 'rd-aa'
+    body: '''
+      export function ${1:addTodo}($2) {
+        return (dispatch, getState) => {
+          $4
+          dispatch({
+            $3
+          })
+        }
+      }
+    '''
+
+  'middleware':
+    prefix: 'rd-md'
+    body: '''
+      export default function $1({ dispatch, getState }) {
+        return next => action => {
+          ${2:next(action)}
+        }
+      }
+    '''
