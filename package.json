@@ -1,0 +1,18 @@
+{
+  "name": "es6-no-semicolon-react-snippets",
+  "main": "./lib/es6-no-semicolon-react-snippets",
+  "version": "0.0.1",
+  "description": "A short description of your package",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "es6-no-semicolon-react-snippets:toggle"
+  },
+  "repository": "https://github.com/atom/es6-no-semicolon-react-snippets",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
