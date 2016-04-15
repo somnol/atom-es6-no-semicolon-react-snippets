@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle atom-es6-no-semicolon-style-react'
+      'command': 'atom-es6-no-semicolon-style-react:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'atom-es6-no-semicolon-style-react'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'atom-es6-no-semicolon-style-react:toggle'
+        }
+      ]
+    ]
+  }
+]

@@ -1,31 +1,22 @@
 {
-  "name": "es6-no-semicolon-react-snippets",
-  "main": "./lib/es6-no-semicolon-react-snippets",
+  "name": "es6-no-semicolon-style-react",
+  "main": "./lib/atom-es6-no-semicolon-style-react",
   "version": "0.0.1",
-  "description": "This package provide some snippets of react, redux with no-semicolon style -- for the language-babel",
+  "description": "A package for writing ES6 style React components with no-semicolon",
   "keywords": [
-    "es6",
-    "no-semicolon",
-    "react",
-    "redux",
-    "snippets"
   ],
   "activationCommands": {
-    "atom-workspace": "es6-no-semicolon-react-snippets:convert"
+    "atom-workspace": "atom-es6-no-semicolon-style-react:toggle"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/somnol/atom-es6-no-semicolon-react-snippets.git"
+    "url": "https://github.com/somnol/atom-es6-no-semicolon-style-react"
   },
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "author": "Benta Dng <deng.bintao@gmail.com",
-  "bugs": {
-    "url": "https://github.com/somnol/atom-es6-no-semicolon-react-snippets"
-  },
-  "homepage": "https://github.com/somnol/atom-es6-no-semicolon-react-snippets",
+  "homepage": "https://github.com/somnol/atom-es6-no-semicolon-style-react",
   "dependencies": {
   }
 }

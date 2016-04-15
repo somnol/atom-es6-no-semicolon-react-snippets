@@ -1,87 +1,111 @@
 '.source.js.jsx':
 
-  'export action':
-    prefix: 'rd-expact'
+  'React::import React':
+    prefix: 'r-ir'
     body: '''
-      export const $1 = '$1'$2
+      import React from 'react'
+      $1
     '''
 
-  'export action creator':
-    prefix: 'rd-expactc'
+  'React::import render':
+    prefix: 'r-ird'
     body: '''
-      export function ${1:addTodo}($2) {
-        $4
-        return {
-          $2,
-          type: $3
-        }
-      }$5
+      import { render } from 'react-dom'
+      $1
     '''
 
-  'import action':
-    prefix: 'rd-impact'
+  'React::import React and render':
+    prefix: 'r-irr'
     body: '''
-      import { ${1:action} } from '${2:../actions}'$3
+      import React from 'react'
+      import { render } from 'react-dom'
+      $1
     '''
 
-  'import reducers':
-    prefix: 'rd-impred'
+  'React::import React and PropTypes':
+    prefix: 'r-irp'
     body: '''
-      import { ${1:reducers} } from '${2:../reducers}'$3
+      import React, { PropTypes } from 'react'
+      $1
     '''
 
-  'import combineReducers':
-    prefix: 'rd-impcom'
-    body: '''
-      import { ${1:combineReducers} } from 'redux'$2
-    '''
-
-  'import connect':
-    prefix: 'rd-impcon'
-    body: '''
-      import { ${1:connect} } from 'react-redux'$2
-    '''
-
-  'import createStore':
-    prefix: 'rd-impcs'
-    body: '''
-      import { ${1:createStore} } from 'redux'$2
-    '''
-
-  'import createStore and create it':
-    prefix: 'rd-impcsc'
-    body: '''
-      import { ${1:createStore} } from 'redux'
-
-      let store = createStore($2)$3
-    '''
-
-  'import Provider':
-    prefix: 'rd-imppro'
-    body: '''
-      import { ${1:Provider} } from 'react-redux'$2
-    '''
-
-  'import React and PropTypes':
-    prefix: 'r-imprp'
-    body: '''
-      import React, { PropTypes } from 'react'$1
-    '''
-
-  'import React and create presentational Component':
-    prefix: 'r-imppc'
+  'React::import React and create presentational Component':
+    prefix: 'r-irpc'
     body: '''
       import React, { PropTypes } from 'react'
 
-      export default const $1 = ({ ${2} }) => $4
+      const $1 = (${2}) => $4
 
       $1.propTypes = {
         $3
       }
+
+      export default $1
+
     '''
 
-  'create React class-base Component':
-    prefix: 'r-cre-cc'
+  'React::import from local':
+    prefix: 'r-il'
+    body: '''
+      import $1 from './$1'
+      $2
+    '''
+
+  'React::import from presentational components':
+    prefix: 'r-ipc'
+    body: '''
+      import $1 from '../components/$1'
+      $2
+    '''
+
+  'React::import local presentational components':
+    prefix: 'r-ilpc'
+    body: '''
+      import $1 from './components/$1'
+      $2
+    '''
+
+  'React::import from action containers':
+    prefix: 'r-ic'
+    body: '''
+      import $1 from '../containers/$1'
+      $2
+    '''
+
+  'React::PropTypes bool isRequired':
+    prefix: 'ptb'
+    body: 'PropTypes.bool.isRequired$1'
+
+  'React::PropTypes element isRequired':
+    prefix: 'pte'
+    body: 'PropTypes.element.isRequired$1'
+
+  'React::PropTypes function isRequired':
+    prefix: 'ptf'
+    body: 'PropTypes.func.isRequired$1'
+
+  'React::PropTypes node isRequired':
+    prefix: 'ptnode'
+    body: 'PropTypes.node.isRequired$1'
+
+  'React::PropTypes number isRequired':
+    prefix: 'ptnum'
+    body: 'PropTypes.number.isRequired$1'
+
+  'React::PropTypes object isRequired':
+    prefix: 'pto'
+    body: 'PropTypes.object.isRequired'
+
+  'React::PropTypes string isRequired':
+    prefix: 'pts'
+    body: 'PropTypes.string.isRequired$1'
+
+  'React::PropTypes arrayOf isRequired':
+    prefix: 'pta'
+    body: 'PropTypes.arrayOf($1).isRequired$2'
+
+  'React::create React class-base Component':
+    prefix: 'r-ccc'
     body: '''
       class $1 extends React.Component {
         render() {
@@ -90,14 +114,14 @@
       }
     '''
 
-  'create function-base component':
-    prefix: 'r-cre-func'
+  'React::create function-base component':
+    prefix: 'r-cfc'
     body: '''
-      const $1 = ({ $2}) => $3
+      const $1 = ($2) => $3
     '''
 
-  'component with constructor and state':
-    prefix: 'r-cre-sc'
+  'React::create component with constructor and state':
+    prefix: 'r-csc'
     body: '''
       class $1 extends React.Component {
         constructor(props) {
@@ -112,38 +136,127 @@
       }
     '''
 
-  'combineReducers':
+  'Redux::export action':
+    prefix: 'rd-a'
+    body: '''
+      export const $1 = '$1'
+      $2
+    '''
+
+  'Redux::export action creator':
+    prefix: 'rd-ac'
+    body: '''
+      export function ${1:actionCreator} ($2) {
+        return {
+          $2,
+          type: $3
+        }
+      }$4
+    '''
+
+  'Redux::import action':
+    prefix: 'rd-ia'
+    body: '''
+      import { ${1:action} } from '${2:../actions}'
+      $3
+    '''
+
+  'Redux::import reducers':
+    prefix: 'rd-ir'
+    body: '''
+      import { ${1:reducers} } from '${2:../reducers}'
+      $3
+    '''
+
+  'Redux::import combineReducers':
+    prefix: 'rd-icom'
+    body: '''
+      import { combineReducers } from 'redux'
+      $1
+    '''
+
+  'Redux::import connect':
+    prefix: 'rd-icon'
+    body: '''
+      import { connect } from 'react-redux'
+      $1
+    '''
+
+  'Redux::import createStore':
+    prefix: 'rd-ics'
+    body: '''
+      import { createStore } from 'redux'
+      $1
+    '''
+
+  'Redux::import createStore and create it':
+    prefix: 'rd-icsc'
+    body: '''
+      import { createStore } from 'redux'
+
+      let store = createStore($1)
+      $2
+    '''
+
+  'Redux::import Provider':
+    prefix: 'rd-ip'
+    body: '''
+      import { Provider } from 'react-redux'
+      $1
+    '''
+
+  'Redux::create reducer function':
+    prefix: 'rd-cr'
+    body:'''
+      const initialState = $1
+
+      function ${2:reducer} (state = initialState, action) {
+        switch (action.type) {
+          case $3:
+
+          default:
+            return state
+        }
+      }$4
+
+      export default $2
+
+    '''
+
+  'Redux::combineReducers':
     prefix: 'rd-com'
     body: '''
       let $1 = combineReducers({
-        $2,
-        $3
-      })$4
+        $2
+      })$3
 
       export default $1
+
     '''
 
-  'mapStateToProps':
-    prefix: 'rd-maps'
+  'Redux::mapStateToProps':
+    prefix: 'rd-ms'
     body: '''
       const mapStateToProps = (state${1}) => {
         return {
           $2
         }
-      }$3
+      }
+      $3
     '''
 
-  'mapDispatchToProps':
-    prefix: 'rd-mapd'
+  'Redux::mapDispatchToProps':
+    prefix: 'rd-md'
     body: '''
       const mapDispatchToProps = (dispatch${1}) => {
         return {
           $2
         }
-      }$3
+      }
+      $3
     '''
 
-  'connect Container':
+  'Redux::connect Container':
     prefix: 'rd-con'
     body:'''
       let $1 = connect(
@@ -152,23 +265,24 @@
       )($2)$3
 
       export default $1
+
     '''
 
-  'create Provider':
-    prefix: 'rd-pro'
+  'Redux::create Provider':
+    prefix: 'rd-cp'
     body: '''
       <Provider store={ store }>
         $1
       </Provider>$2
     '''
 
-  'createStore':
-    prefix: 'rd-crestore'
+  'Redux::createStore':
+    prefix: 'rd-cs'
     body: '''
       let store = createStore($1)$2
     '''
 
-  'async-action':
+  'Redux::async-action':
     prefix: 'rd-aa'
     body: '''
       export function ${1:addTodo}($2) {
@@ -179,4 +293,11 @@
           })
         }
       }
+    '''
+
+  'Router:: import from Router':
+    prefix: 'ro-ir'
+    body: '''
+      import { ${1:Router} } from 'react-router'
+      $2
     '''
