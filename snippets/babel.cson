@@ -168,10 +168,18 @@
       $3
     '''
 
-  'Redux::import combineReducers':
+  'Redux::import combineReducers and createStore':
     prefix: 'rd-icom'
     body: '''
-      import { combineReducers } from 'redux'
+      import { combineReducers, createStore } from 'redux'
+      $1
+    '''
+
+  'Redux::import applyMiddleware, combineReducers and createStore':
+    prefix: 'rd-iacom'
+    body: '''
+      import { applyMiddleware, combineReducers, createStore } from 'redux'
+      import thunk from 'redux-thunk'
       $1
     '''
 
@@ -217,21 +225,35 @@
           default:
             return state
         }
-      }$4
+      }
 
       export default $2
 
     '''
 
-  'Redux::combineReducers':
+  'Redux::combineReducers and create a store':
     prefix: 'rd-com'
     body: '''
       let $1 = combineReducers({
         $2
-      })$3
+      })
 
-      export default $1
+      let store = createStore($1)
 
+      export default store
+
+    '''
+
+  'Redux::async combineReducers and create a store':
+    prefix: 'rd-acom'
+    body: '''
+      let $1 = combineReducers({
+        $2
+      })
+
+      let store = createStore($1, applyMiddleware(thunk))
+
+      export default store
     '''
 
   'Redux::mapStateToProps':
@@ -273,7 +295,7 @@
     body: '''
       <Provider store={ store }>
         $1
-      </Provider>$2
+      </Provider>,$2
     '''
 
   'Redux::createStore':
@@ -287,10 +309,7 @@
     body: '''
       export function ${1:addTodo}($2) {
         return (dispatch, getState) => {
-          $4
-          dispatch({
-            $3
-          })
+          $3
         }
       }
     '''
